@@ -17,13 +17,14 @@ _start:
   mov rsi, buffer
   mov rdx, 16
   syscall
+  mov r9, rax     ; input length
 
   mov rdi, msg
   mov rsi, msg_len
   call print
 
   mov rdi, buffer
-  mov rsi, 16
+  mov rsi, r9
   call print
 
   mov rax, 0x3c   ; exit
