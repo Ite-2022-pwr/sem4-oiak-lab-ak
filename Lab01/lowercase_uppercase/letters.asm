@@ -17,12 +17,12 @@ _start:
   syscall
   mov r9, rax               ; ilość wprowadzonych znaków
 
-  mov r8, 0                 ; licznik
+  mov rcx, 0                ; licznik
 .loop:
-  cmp r8, r9                ; jeśli r8 >= r9 to zakończ
+  cmp rcx, r9               ; jeśli r8 >= r9 to zakończ
   jge .finish
 
-  mov al, [buffer + r8]     ; przenieś literę z bufora do akumulatora
+  mov al, [buffer + rcx]    ; przenieś literę z bufora do akumulatora
   cmp rax, 65               ; jeśli znak jest mniejszy od A to zakończ
   jl .finish
 
@@ -38,9 +38,9 @@ _start:
   add al, 32                ; zamień wielką literę na małą
 
 .update:
-  mov [buffer + r8], al     ; przenieś zmienioną literę do pamięci
+  mov [buffer + rcx], al    ; przenieś zmienioną literę do pamięci
 
- inc r8                     ; zwiększ licznik o 1 i wróć na początek pętli
+ inc rcx                    ; zwiększ licznik o 1 i wróć na początek pętli
  jmp .loop
 
 .finish:
