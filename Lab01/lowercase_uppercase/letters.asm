@@ -2,7 +2,7 @@ BITS 64
 
 section .data
 section .bss
-  buffer resb 20  ; bufor
+  buffer resb 256  ; bufor
 
 section .text
 
@@ -13,12 +13,13 @@ _start:
   mov rax, 0                ; read
   mov rdi, 0                ; stdin
   mov rsi, buffer
-  mov rdx, 16
+  mov rdx, 256
   syscall
+  mov r9, rax               ; ilość wprowadzonych znaków
 
   mov r8, 0                 ; licznik
 .loop:
-  cmp r8, 16                ; jeśli r8 >= 16 to zakończ
+  cmp r8, r9                ; jeśli r8 >= r9 to zakończ
   jge .finish
 
   mov al, [buffer + r8]     ; przenieś literę z bufora do akumulatora
@@ -44,7 +45,7 @@ _start:
 
 .finish:
   mov rdi, buffer           ; zmodyfikowany bufor
-  mov rsi, 16               ; rozmiar bufora
+  mov rsi, r9               ; ilość znaków
   call print                ; wypisz zmodyfikowany bufor
 
   mov rax, 60               ; exit
