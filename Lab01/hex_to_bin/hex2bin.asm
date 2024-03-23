@@ -85,7 +85,9 @@ _process_hex_digit:
   push rbx
   push rcx
   push rdx
-
+  
+  call _clear_buffer
+  xor rax, rax
   mov rax, rdi
   mov rcx, 4
 .loop:
@@ -105,6 +107,10 @@ _process_hex_digit:
   leave
   ret
 
+_clear_buffer:
+  xor rax, rax
+  mov [hex_digit_bin], rax
+  ret
 ; _get_input:
 ;   push rbp
 ;   mov rbp, rsp
@@ -169,7 +175,10 @@ _get_char:
   push rbx
   push rcx
   push rdx
- 
+  
+  xor rax, rax
+  mov [input_char], rax
+
   mov rax, 0
   mov rdi, 0
   mov rsi, input_char
