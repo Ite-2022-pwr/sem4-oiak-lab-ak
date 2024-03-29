@@ -5,24 +5,26 @@ BITS 64
 ; 5b. Binarną reprezentację liczby z zadania 5 wypisać na standardowy strumień wyjściowy w postaci ciągu znaków reprezentujących wartość dziesiętną.
 
 section .data
-  number_fmt db "%d", 10, 0
+  number_fmt db "%d", 10, 0 ; tekst formatujący powodujący wypisanie liczby dziesiętnie oraz znaku nowej linii
 
 section .bss
   ; buffer resb 256
   ; buffer_len resq 1
-  number resq 1
+  number resq 1       ; liczba przekonwertowana z wprowadzonego tekstu
   input_char resb 1
 
 section .text
-extern printf
+extern printf         ; zewnętrzna funkcja printf
 
 global main
 
 main:
+  ; prolog funkcji
   push rbp
   mov rbp, rsp
 
-  mov rbx, 10
+  ; zadanie 5a
+  mov rbx, 10 ; mnożnik x10
 .loop:
   call _get_char
   cmp rax, 1
@@ -30,18 +32,19 @@ main:
 
   xor rax, rax
   mov rax, [number]
-  mul rbx
+  mul rbx               ; mnożymy liczbę x10
   xor rdx, rdx 
   mov dl, [input_char]
   mov r9, rdx
-  sub r9, 48
-  add rax, r9
-  mov [number], rax
+  sub r9, 48            ; zamieniamy wprowadzony znak na faktyczną wartość cyfry
+  add rax, r9           ; dodajemy nową cyfrę do naszej liczby
+  mov [number], rax     ; zapisujemy zaktualizowaną wartość liczby w pamięci
 
   jmp .loop
 
 .print
-  mov rax, 0
+  ; wypisanie liczby (zadanie 5b)
+  mov rax, 0            ; nie mamy żadnych liczb zmiennoprzecinkowych
   mov rdi, number_fmt
   mov rsi, [number]
   call printf

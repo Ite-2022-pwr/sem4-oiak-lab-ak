@@ -10,13 +10,14 @@ section .data
 section .bss
   input_char resb 1
 
-  hex_digit_bin resb 4
+  hex_digit_bin resb 4 ; jedna cyfra szesnastkowa zajmuje 4 bity
 
 section .text
 
 global _start
 
 _start:
+  ; prolog funkcji
   push rbp
   mov rbp, rsp
 
@@ -28,19 +29,19 @@ _start:
   mov rdi, [input_char]
 
   cmp rdi, 70
-  jg _on_error
+  jg _on_error  ; jeśli wprowadzony znak jest większy od 'F', to oznacza niepoprawną cyfrę szesnastkową
   cmp rdi, 48
-  jl _on_error
+  jl _on_error  ; jeśli wprowadzony znak jest mniejszy od '0', to oznacza niepoprawną cyfrę szesnastkową
 
   cmp rdi, 65
-  jge .letter
-  jmp .digit
+  jge .letter   ; wprowadzony znak to litera
+  jmp .digit    ; wprowadzony znak to cyfra
 .letter:
   sub rdi, 55
   jmp .convert
 .digit:
   cmp rdi, 57
-  jg _on_error
+  jg _on_error  ; jeśli wprowadzony znak jest większy od '9' (jest pomiędzy '9' a 'A'), to oznacza niepoprawną cyfrę szesnastkową
   sub rdi, 48
 .convert:
   call _process_hex_digit
@@ -49,6 +50,7 @@ _start:
   call _print
   jmp .loop
 
+  ; epilog funkcji
   mov rbp, rsp
   pop rbp
 
@@ -69,14 +71,14 @@ _process_hex_digit:
   call _clear_buffer
   xor rax, rax
   mov rax, rdi
-  mov rcx, 4
+  mov rcx, 4 ; jedna cyfra szesnastkowa zajmuje 4 bity
 .loop:
   mov rdx, rax
-  and rdx, 0x01
+  and rdx, 0x01 ; sprawdzamy czy ostatni bit to 1 czy 0
   mov rbx, rdx
-  add rbx, 48
-  mov [hex_digit_bin + rcx - 1], bl
-  shr rax, 1
+  add rbx, 48   ; zamieniamy na znak
+  mov [hex_digit_bin + rcx - 1], bl ; zapisujemy "od końca" (od najmniej znaczącego bitu)
+  shr rax, 1    ; przesuwamy liczbę bitowo w prawo o 1 pozbywając się sprawdzonego już bitu
   loop .loop
 
   pop rdx

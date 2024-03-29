@@ -21,10 +21,12 @@ _start:
   syscall
   mov r9, rax     ; input length
 
+  ; wypisanie komunikatu powitania
   mov rdi, msg
   mov rsi, msg_len
   call print
 
+  ; wypisanie wprowadzonego tekstu
   mov rdi, buffer
   mov rsi, r9
   call print
