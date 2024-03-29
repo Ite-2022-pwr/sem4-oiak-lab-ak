@@ -1,5 +1,7 @@
 BITS 64
 
+; 2. Proszę modyfikować kod do postaci pozwalającej wykorzystać funkcję systemową read.
+
 section .data
   msg db "Hello, "
   msg_len equ $-msg

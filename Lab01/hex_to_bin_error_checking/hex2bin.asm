@@ -1,5 +1,7 @@
 BITS 64
 
+; * 3. To samo, co w punkcie 2, ale należy dodać kod wykrywający niepoprawne znaki we wczytanym ciągu.
+
 section .data
   new_line db 0xa
   err_msg db 10, "Niedozwolony znak: "

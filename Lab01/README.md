@@ -10,25 +10,25 @@ Celem ćwiczenia jest zapoznanie uczestników kursu ze środowiskiem programisty
 
 Zadania wstępne:
 
-1. Proszę przepisać i skompilować kod zamieszczony we wzorcowym sprawozdaniu.
+1. [Proszę przepisać i skompilować kod zamieszczony we wzorcowym sprawozdaniu.](./hello/)
 
-2. Proszę modyfikować kod do postaci pozwalającej wykorzystać funkcję systemową read.
+2. [Proszę modyfikować kod do postaci pozwalającej wykorzystać funkcję systemową read.](./hello_read/)
 
 
 
 Zadania dotyczące konstrukcji programowych:
 
-1. Pobrać ze standardowego strumienia wejściowego procesu ciąg znaków i zamienić wszystkie małe litery na wielkie, wszystkie wielkie na małe, zmienić wielkość co drugiej litery itp.
+1. [Pobrać ze standardowego strumienia wejściowego procesu ciąg znaków i zamienić wszystkie małe litery na wielkie, wszystkie wielkie na małe, zmienić wielkość co drugiej litery itp.](./lowercase_uppercase/)
 
-2. Pobrać ze standardowego strumienia wejściowego ciąg znaków dowolnej długości, potraktować każdy znak jako zapis cyfry szesnastkowej (np. znak 'A' odpowiada wartości 10 dziesiętnie) i skonstruować liczbę w kodzie naturalnym binarnym i/lub U2. Wynik wypisać na standardowy strumień wyjściowy. Zakładamy, że wprowadzane są wyłącznie znaki 'A'­'F' i cyfry.
+2. [Pobrać ze standardowego strumienia wejściowego ciąg znaków dowolnej długości, potraktować każdy znak jako zapis cyfry szesnastkowej (np. znak 'A' odpowiada wartości 10 dziesiętnie) i skonstruować liczbę w kodzie naturalnym binarnym i/lub U2. Wynik wypisać na standardowy strumień wyjściowy. Zakładamy, że wprowadzane są wyłącznie znaki 'A'­'F' i cyfry.](./hex_to_bin/)
 
-3. To samo, co w punkcie 2, ale należy dodać kod wykrywający niepoprawne znaki we wczytanym ciągu.
+3. [To samo, co w punkcie 2, ale należy dodać kod wykrywający niepoprawne znaki we wczytanym ciągu.](./hex_to_bin_error_checking/)
 
-4. Pobrać ze standardowego strumienia wejściowego ciąg bajtów o zadanej długości i wyprowadzić na standardowy strumień wyjściowy ciąg znaków reprezentujący szesnastkowy zapis wartości tej liczby.
+4. [Pobrać ze standardowego strumienia wejściowego ciąg bajtów o zadanej długości i wyprowadzić na standardowy strumień wyjściowy ciąg znaków reprezentujący szesnastkowy zapis wartości tej liczby.](./hexdump/)
 
-5. Pobrać ze standardowego strumienia wejściowego ciąg znaków o dowolnej długości, potraktować ten ciąg jako zapis dziesiętny pewnej liczby i zapisać wartość tej liczby binarnie w pamięci.
+5. [Pobrać ze standardowego strumienia wejściowego ciąg znaków o dowolnej długości, potraktować ten ciąg jako zapis dziesiętny pewnej liczby i zapisać wartość tej liczby binarnie w pamięci.](./string_to_int/)
 
-6. Binarną reprezentację liczby z zadania 5 wypisać na standardowy strumień wyjściowy w postaci ciągu znaków reprezentujących wartość dziesiętną.
+6. [Binarną reprezentację liczby z zadania 5 wypisać na standardowy strumień wyjściowy w postaci ciągu znaków reprezentujących wartość dziesiętną.](./string_to_int/)
 
 
 

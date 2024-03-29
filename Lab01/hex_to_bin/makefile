@@ -1,3 +1,4 @@
+# echo -n "1A5F" | ./hex2bin.out 
 hex2bin.out: hex2bin.o
 	ld -o hex2bin.out hex2bin.o
 hex2bin.o: hex2bin.asm

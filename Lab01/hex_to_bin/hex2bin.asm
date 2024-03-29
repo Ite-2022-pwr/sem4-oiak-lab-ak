@@ -1,5 +1,7 @@
 BITS 64
 
+; 2. Pobrać ze standardowego strumienia wejściowego ciąg znaków dowolnej długości, potraktować każdy znak jako zapis cyfry szesnastkowej (np. znak 'A' odpowiada wartości 10 dziesiętnie) i skonstruować liczbę w kodzie naturalnym binarnym lub U2. Wynik wypisać na standardowy strumień wyjściowy. Zakładamy, że wprowadzane są wyłącznie znaki 'A'­'F' i cyfry.
+
 section .data
   new_line db 0xa
 

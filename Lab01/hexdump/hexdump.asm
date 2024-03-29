@@ -1,11 +1,12 @@
 BITS 64
 
+; 4. Pobrać ze standardowego strumienia wejściowego ciąg bajtów o zadanej długości i wyprowadzić na standardowy strumień wyjściowy ciąg znaków reprezentujący szesnastkowy zapis wartości tej liczby.
+
 section .data
   hex_fmt db "0x%02X ", 0
 
 section .bss
-  buffer resb 256
-  buffer_len resd 1
+  input_char resb 1
 
 section .text
 extern printf
@@ -17,27 +18,22 @@ main:
   push rbp
   mov rbp, rsp
 
-  call _get_input
-  mov [buffer_len], rax
-  
-  mov rcx,  [buffer_len]
 .loop:
-  mov r8, [buffer_len]
-  sub r8, rcx
-  mov r14, rcx
+  call _get_char
+  cmp rax, 0
+  jz .exit
 
   mov rdi, hex_fmt
   xor rsi, rsi
   xor rax, rax
-  mov al, [buffer + r8]
+  mov al, [input_char]
   mov rsi, rax
   mov rax, 0
   call printf
   xor rdi, rdi
   call fflush
-  mov rcx, r14 
-  loop .loop
-
+  jmp .loop
+ 
 .exit:
   leave
 
@@ -45,16 +41,26 @@ main:
   mov rdi, 0
   syscall
 
-_get_input:
+_get_char:
   push rbp
   mov rbp, rsp
+  push rdi
+  push rbx
+  push rcx
+  push rdx
+  
+  xor rax, rax
+  mov [input_char], rax
 
   mov rax, 0
   mov rdi, 0
-  mov rsi, buffer
-  mov rdx, 256
+  mov rsi, input_char
+  mov rdx, 1
   syscall
 
+  pop rdx
+  pop rcx
+  pop rbx
+  pop rdi
   leave
   ret
-

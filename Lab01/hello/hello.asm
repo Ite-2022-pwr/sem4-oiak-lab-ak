@@ -1,5 +1,7 @@
 BITS 64
 
+; 1. Proszę przepisać i skompilować kod zamieszczony we wzorcowym sprawozdaniu.
+
 section .data
   msg db "Hello, World!", 10, 0
   msg_len equ $-msg
