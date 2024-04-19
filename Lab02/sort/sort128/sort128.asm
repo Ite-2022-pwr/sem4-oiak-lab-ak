@@ -56,7 +56,7 @@ main:
     ; address calculation
     mov rax, rsi
     mov rbx, BYTES_PER_NUMBER
-    mul ebx
+    mul rbx
     mov rcx, rax
 
     ; little endian
