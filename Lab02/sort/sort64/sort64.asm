@@ -12,10 +12,6 @@ BITS 64
 %define BYTES_PER_NUMBER 8
 %define MAX_BYTES MAX_NUMBERS * BYTES_PER_NUMBER
 
-section .data
-
-  printfNumberFmt db "%d",10,0
-
 section .bss
 
   numbers resb MAX_BYTES

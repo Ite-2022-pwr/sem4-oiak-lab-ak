@@ -9,7 +9,7 @@ BITS 64
 %define EXIT_CODE_SUCCESS 0
   
 %define MAX_NUMBERS 1024*1024*16
-%define BYTES_PER_NUMBER 12
+%define BYTES_PER_NUMBER 16
 %define MAX_BYTES MAX_NUMBERS * BYTES_PER_NUMBER
 
 section .bss
@@ -61,32 +61,23 @@ main:
 
     ; little endian
     xor rax, rax
-    mov eax, [numbers + 8 + rcx]
-    cmp [numbers + BYTES_PER_NUMBER + 8 + rcx], eax
+    mov rax, [numbers + 8 + rcx]
+    cmp [numbers + BYTES_PER_NUMBER + 8 + rcx], rax
     jg .skipSwap
     jl .swap
 
-    mov eax, [numbers + 4 + rcx]
-    cmp [numbers + BYTES_PER_NUMBER + 4 + rcx], eax
-    ja .skipSwap
-    jb .swap
-
-    mov eax, [numbers + rcx]
-    cmp [numbers + BYTES_PER_NUMBER + rcx], eax
+    mov rax, [numbers + rcx]
+    cmp [numbers + BYTES_PER_NUMBER + rcx], rax
     jae .skipSwap
 
     .swap:
-      mov eax, [numbers + rcx]
-      xchg [numbers + BYTES_PER_NUMBER + rcx], eax
-      mov [numbers + rcx], eax
+      mov rax, [numbers + rcx]
+      xchg [numbers + BYTES_PER_NUMBER + rcx], rax
+      mov [numbers + rcx], rax
 
-      mov eax, [numbers + 4 + rcx]
-      xchg [numbers + BYTES_PER_NUMBER + 4 + rcx], eax
-      mov [numbers + 4 + rcx], eax
-
-      mov eax, [numbers + 8 + rcx]
-      xchg [numbers + BYTES_PER_NUMBER + 8 + rcx], eax
-      mov [numbers + 8 + rcx], eax
+      mov rax, [numbers + 8 + rcx]
+      xchg [numbers + BYTES_PER_NUMBER + 8 + rcx], rax
+      mov [numbers + 8 + rcx], rax
 
     .skipSwap:
     
