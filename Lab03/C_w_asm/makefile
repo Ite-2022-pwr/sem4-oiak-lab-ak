@@ -1,3 +1,4 @@
+# Zadanie 1
 c_w_asm.out: c_w_asm.o lib.o
 	gcc -no-pie -ggdb -o c_w_asm.out c_w_asm.o lib.o
 c_w_asm.o: c_w_asm.asm
