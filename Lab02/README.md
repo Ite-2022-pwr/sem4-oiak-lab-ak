@@ -1,4 +1,4 @@
-# Lab01 - Wstęp oraz podstawowe konstrukcje programowe
+# Lab02 - Proste konstrukcje w asemblerze na x86
 
 Prowadzący: [dr inż. Dominik Żelazny](https://wit.pwr.edu.pl/wydzial/struktura-organizacyjna/pracownicy/dominik-zelazny)
 

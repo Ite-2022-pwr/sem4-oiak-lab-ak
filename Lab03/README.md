@@ -1,4 +1,4 @@
-# Lab01 - Wstęp oraz podstawowe konstrukcje programowe
+# Lab03 - Łączenie ASM z C i optymalizacjaZadanie
 
 Prowadzący: [dr inż. Dominik Żelazny](https://wit.pwr.edu.pl/wydzial/struktura-organizacyjna/pracownicy/dominik-zelazny)
 
