@@ -1,4 +1,4 @@
-# Lab03 - Łączenie ASM z C i optymalizacjaZadanie
+# Lab03 - Łączenie ASM z C i optymalizacja
 
 Prowadzący: [dr inż. Dominik Żelazny](https://wit.pwr.edu.pl/wydzial/struktura-organizacyjna/pracownicy/dominik-zelazny)
 
